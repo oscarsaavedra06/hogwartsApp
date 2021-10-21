@@ -1,0 +1,21 @@
+<section style="display: flex;">
+ 
+<div style="display: flex; width: 100%; justify-content: space-between; max-width: 400px;
+margin: 0 auto; padding: 10px 0;">
+    <label for="">Seleccione una casa</label>
+    <select name="" id="" (change)="getItems($event)" style="width: 50%;">
+        <option value="0">Seleccione</option>
+        <option value="slytherin">slytherin</option>
+        <option value="gryffindor">gryffindor</option>
+        <option value="ravenclaw">ravenclaw</option>
+        <option value="hufflepuff">hufflepuff</option>
+    </select>
+</div>
+</section>
+
+<app-table [TableDataSource]="datasource" *ngIf="datasource&&datasource.length>0"
+[columnHeader]="columnHeader" 
+[displayColumns]="displayColumns"
+>
+</app-table>
+
