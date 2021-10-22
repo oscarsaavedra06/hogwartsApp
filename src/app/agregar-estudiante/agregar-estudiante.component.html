@@ -1,0 +1,36 @@
+<form [formGroup]="estudianteForm" (ngSubmit)="onSubmit()" style="width: 50%;">
+
+    <div style="display: flex; flex-direction: column; justify-content: space-between; padding-top: 50px;">
+        <mat-form-field class="" appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="name" placeholder="Nombre">
+            <mat-error *ngIf="estudianteForm.hasError('required')">
+                Nombre es <strong>requerido</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="" appearance="fill">
+            <mat-label>Patronus</mat-label>
+            <input type="text" matInput formControlName="patronus" placeholder="patronus">
+
+        </mat-form-field>
+
+        <mat-form-field class="" appearance="fill">
+            <mat-label>Age</mat-label>
+            <input type="number" matInput formControlName="age" min="0" placeholder="age">
+
+        </mat-form-field>
+
+        <mat-form-field class="" appearance="fill">
+            <mat-label>Image URL</mat-label>
+            <input type="text" matInput formControlName="image" min="0" placeholder="image">
+
+        </mat-form-field>
+    </div>
+
+
+
+    <button mat-flat-button color="primary" type="submit" [disabled]="estudianteForm.invalid">Guardar</button>
+   
+
+</form>

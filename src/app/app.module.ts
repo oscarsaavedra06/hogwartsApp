@@ -15,7 +15,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import { TableComponent } from './table/table.component';
 import { MatPaginatorModule,MatPaginatorIntl } from '@angular/material/paginator';
-
+import {MatInputModule} from '@angular/material/input';
+import { AgregarEstudianteComponent } from './agregar-estudiante/agregar-estudiante.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { MatPaginatorModule,MatPaginatorIntl } from '@angular/material/paginator
     EstudiantesComponent,
     ProfesoresComponent,
     TableComponent,
+    AgregarEstudianteComponent,
       
   ],
   imports: [
@@ -35,7 +38,9 @@ import { MatPaginatorModule,MatPaginatorIntl } from '@angular/material/paginator
     HttpClientModule,
     MatSelectModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

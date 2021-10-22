@@ -1,1 +1,5 @@
-<p>estudiantes works!</p>
+<section>
+    <app-table [TableDataSource]="datasource" *ngIf="datasource&&datasource.length>0" [columnHeader]="columnHeader"
+        [displayColumns]="displayColumns">
+    </app-table>
+</section>

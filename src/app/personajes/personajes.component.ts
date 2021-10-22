@@ -19,13 +19,12 @@ export class Personaje {
 })
 export class PersonajesComponent implements OnInit {
   personajes: any
-  selected = 'option2';
   datasource: Personaje[]
   columnHeader: {}
   displayColumns: string[]
 
-  constructor(private httpService: HttpUtilService) { 
-    this.columnHeader = { name: 'name', patronus: 'patronus', age: 'age', image: 'image' };
+  constructor(private httpService: HttpUtilService) {
+    this.columnHeader = { name: 'Nombre', patronus: 'Patronus', age: 'Edad', image: 'Imagen' };
     this.displayColumns = ["name", "patronus", "age", "image"]
 
   }
@@ -34,12 +33,10 @@ export class PersonajesComponent implements OnInit {
   }
 
   getItems(e: any) {
-    alert("Ha seleccionado " + e.currentTarget.value)
     let casa = e.currentTarget.value;
     this.httpService.get("http://hp-api.herokuapp.com/api/characters/house/" + casa).subscribe(
       (response) => {
         this.personajes = response;
-        console.log(this.personajes)
         this.mapDatasource()
       },
       (error) => { console.log(error); }
@@ -47,14 +44,13 @@ export class PersonajesComponent implements OnInit {
   }
 
   mapDatasource() {
-
     this.datasource = this.personajes.map(function (x: any) {
       return new Personaje(x.name, x.patronus, getAge(x.dateOfBirth as string), x.image)
     });
-    
+
   }
 
-   
+
 
 }
 
@@ -62,12 +58,12 @@ export class PersonajesComponent implements OnInit {
 
 function getAge(arg0: string): number {
   let today = new Date();
-    let birthDate = new Date(arg0);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    let m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age;
+  let birthDate = new Date(arg0);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  let m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
 }
 
